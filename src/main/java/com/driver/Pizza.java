@@ -50,6 +50,8 @@ public class Pizza {
         if(!extraCheeseAdded)
         {
             price+=cheese;
+            extraCheeseAdded=true;
+            
         }
     }
 
@@ -58,6 +60,7 @@ public class Pizza {
         if(!extraToppingsAdded)
         {
             price+=toppings;
+            extraToppingsAdded=true;
         }
     }
 
@@ -66,6 +69,7 @@ public class Pizza {
         if(!isTakeaway)
         {
             price+=bag;
+            isTakeaway=true;
         }
     }
 
@@ -73,6 +77,7 @@ public class Pizza {
     {
         if(!isBillGenerated)
         {
+            isBillGenerated=true;
             if(extraCheeseAdded)
             {
                 bill+="Extra Cheese Added: " + cheese + "\n";
