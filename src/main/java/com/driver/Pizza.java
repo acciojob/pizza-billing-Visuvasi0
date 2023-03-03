@@ -5,30 +5,88 @@ public class Pizza {
     private int price;
     private Boolean isVeg;
     private String bill;
+    private int cheese;
+    private int toppings;
+    private int bag;
+    private boolean extraCheeseAdded;
+    private boolean extraToppingsAdded;
+    private boolean isTakeaway;
+    private boolean isBillGenerated;
 
-    public Pizza(Boolean isVeg){
+    public Pizza(Boolean isVeg)
+    {
         this.isVeg = isVeg;
-        // your code goes here
+        
+        extraCheeseAdded = false;
+        extraToppingsAdded = false;
+        isTakeaway = false;
+        isBillGenerated = false;
+        
+        if(isVeg)
+        {
+            price = 300;
+            cheese = 80;
+            toppings = 70;
+            bag = 20;
+            bill += "Base Price Of The Pizza: " + price + "\n";
+        }
+        else
+        {
+            price = 400;
+            cheese = 80;
+            toppings = 120;
+            bag = 20;
+            bill += "Base Price Of The Pizza: " + price + "\n";
+        }
     }
 
-    public int getPrice(){
+    public int getPrice()
+    {
         return this.price;
     }
 
-    public void addExtraCheese(){
-        // your code goes here
+    public void addExtraCheese()
+    {
+        if(!extraCheeseAdded)
+        {
+            price+=cheese;
+        }
     }
 
-    public void addExtraToppings(){
-        // your code goes here
+    public void addExtraToppings()
+    {
+        if(!extraToppingsAdded)
+        {
+            price+=toppings;
+        }
     }
 
-    public void addTakeaway(){
-        // your code goes here
+    public void addTakeaway()
+    {
+        if(!isTakeaway)
+        {
+            price+=bag;
+        }
     }
 
-    public String getBill(){
-        // your code goes here
+    public String getBill()
+    {
+        if(!isBillGenerated)
+        {
+            if(extraCheeseAdded)
+            {
+                bill+="Extra Cheese Added: " + cheese + "\n";
+            }
+            if(extraToppingsAdded)
+            {
+                bill+="Extra Toppings Added: " + toppings + "\n";
+            }
+            if(isTakeaway)
+            {
+                bill+="Paperbag Added: " + bag + "\n";
+            }
+        }
+        bill+="Total Price: " + price;
         return this.bill;
     }
 }
